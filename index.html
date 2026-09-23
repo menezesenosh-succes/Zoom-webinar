@@ -299,6 +299,33 @@ section{padding-block:84px;position:relative}
 .cta-band .motif span{background:#fff;height:14px}
 .cta-band .m1{left:-30px;top:20px}.cta-band .m2{right:-30px;bottom:20px}
 
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:.75fr 1.6fr;gap:56px;align-items:start}
+.faq-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.faq-col{display:flex;flex-direction:column;gap:12px}
+.qa{border:1px solid var(--line);border-radius:14px;background:#fff;transition:border-color .3s,box-shadow .3s}
+.qa.open{border-color:var(--navy-900);box-shadow:var(--shadow)}
+.qa>.q{width:100%;text-align:left;padding:16px 18px;display:flex;justify-content:space-between;gap:14px;align-items:center;font-weight:700;color:var(--ink);font-size:14.5px}
+.qa .pm{width:26px;height:26px;border-radius:8px;background:var(--soft);flex:none;position:relative;transition:background .3s}
+.qa .pm::before,.qa .pm::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:2px;background:var(--ink);transform:translate(-50%,-50%);transition:transform .3s,background .3s}
+.qa .pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+.qa.open .pm{background:var(--navy-900)}
+.qa.open .pm::before,.qa.open .pm::after{background:#fff}
+.qa.open .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.qa .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.qa.open .ans{grid-template-rows:1fr}
+.qa .ans>div{overflow:hidden}
+.qa .ans p{padding:0 18px 14px;font-size:14px}
+.qa .ans p.short{color:var(--ink);font-weight:500}
+.qa .more{display:inline-flex;align-items:center;gap:6px;margin:0 18px 16px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);font-size:12.5px;font-weight:700;color:var(--indigo);background:#fff;transition:all .25s var(--ease)}
+.qa .more:hover{border-color:var(--indigo);background:rgba(46,49,146,.05)}
+.qa .more svg{width:14px;height:14px;transition:transform .3s var(--ease)}
+.qa .more[aria-expanded="true"] svg{transform:rotate(180deg)}
+.qa .full{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.qa .full.open{grid-template-rows:1fr}
+.qa .full>div{overflow:hidden}
+.qa .full p{border-top:1px solid var(--line);padding-top:14px;margin:0 18px 16px;padding-inline:0}
+
 /* Footer */
 footer{background:var(--navy-950);color:rgba(255,255,255,.6);padding-block:44px 28px;font-size:14px}
 .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;align-items:start}
@@ -362,7 +389,7 @@ form .btn{grid-column:1/-1;justify-content:center;margin-top:4px}
   .mobile-menu a{padding:12px 0;font-weight:700;color:var(--ink);border-bottom:1px solid var(--line)}
 }
 @media (max-width:1080px){
-  .hero-grid,.split,.val-grid{grid-template-columns:1fr;gap:40px}
+  .hero-grid,.split,.val-grid,.faq-grid{grid-template-columns:1fr;gap:40px}
   .split.rev>.txt{order:0}
   .grid4{grid-template-columns:1fr 1fr}
   .uc{grid-template-columns:repeat(3,1fr)}
@@ -380,7 +407,7 @@ form .btn{grid-column:1/-1;justify-content:center;margin-top:4px}
   .side .pcard:last-child{display:none}
   .stats{gap:8px}
   .stat{padding:12px 10px}
-  .grid4,.vals{grid-template-columns:1fr 1fr}
+  .grid4,.vals,.faq-cols{grid-template-columns:1fr}
   .uc{grid-template-columns:1fr 1fr}
   .ucard{border-left:0!important;border-top:1px solid var(--line)}
   .ucard:nth-child(even){border-left:1px solid var(--line)!important}
@@ -431,6 +458,7 @@ form .btn{grid-column:1/-1;justify-content:center;margin-top:4px}
       <a href="#production">Production</a>
       <a href="#integration">Integration</a>
       <a href="#audience">Who is this for</a>
+      <a href="#faq">FAQs</a>
     </nav>
     <div class="nav-cta">
       <button class="btn btn-primary" data-open="expert">Talk to an Expert</button>
@@ -439,7 +467,7 @@ form .btn{grid-column:1/-1;justify-content:center;margin-top:4px}
   </div>
 </header>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#features">Key Features</a><a href="#content">Content & Insights</a><a href="#use-cases">Use Cases</a><a href="#production">Production</a><a href="#integration">Integration</a><a href="#audience">Who is this for</a>
+  <a href="#features">Key Features</a><a href="#content">Content & Insights</a><a href="#use-cases">Use Cases</a><a href="#production">Production</a><a href="#integration">Integration</a><a href="#audience">Who is this for</a><a href="#faq">FAQs</a>
 </div>
 
 <main id="top">
@@ -727,6 +755,85 @@ form .btn{grid-column:1/-1;justify-content:center;margin-top:4px}
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" class="bg-soft">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="eyebrow reveal">FAQs</span>
+      <h2 class="h2 reveal d1">Questions enterprise teams <span class="grad-text">ask us most.</span></h2>
+      <div class="reveal d2" style="margin-top:22px"><button class="btn btn-primary" data-open="expert">Talk to an Expert <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+    <div class="faq-cols" id="faqCols">
+      <div class="faq-col">
+        <div class="qa reveal open">
+          <button class="q" aria-expanded="true"><span>What's the difference between a Zoom Meeting and a Zoom Webinar?</span><span class="pm"></span></button>
+          <div class="ans"><div>
+            <p class="short">Meetings: everyone can speak and share. Webinars: attendees join view-only and interact through Q&A, chat and polls.</p>
+            <button class="more" aria-expanded="false">Know more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="full"><div><p>In a meeting, everyone is a participant with camera, mic and screen-share rights. In a webinar, attendees join view-only and interact through Q&amp;A, chat and polls, while only hosts and panellists can present. For anything public-facing, a webinar licence is the right control model.</p></div></div>
+          </div></div>
+        </div>
+        <div class="qa reveal">
+          <button class="q" aria-expanded="false"><span>How large an audience can we host?</span><span class="pm"></span></button>
+          <div class="ans"><div>
+            <p class="short">Capacity depends on the licence tier. Sysgrate recommends the right configuration for your audience size.</p>
+            <button class="more" aria-expanded="false">Know more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="full"><div><p>Zoom Webinar capacity depends on the licence tier selected. Sysgrate will recommend the appropriate configuration based on your expected audience size and event requirements.</p></div></div>
+          </div></div>
+        </div>
+        <div class="qa reveal">
+          <button class="q" aria-expanded="false"><span>Is AI Companion an additional cost?</span><span class="pm"></span></button>
+          <div class="ans"><div>
+            <p class="short">No. It's included at no extra cost with eligible paid Zoom licences.</p>
+            <button class="more" aria-expanded="false">Know more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="full"><div><p>AI Companion is included at no extra cost with eligible paid Zoom licences. Features vary by plan, and it needs to be enabled and configured correctly at account level — which is part of every Sysgrate deployment.</p></div></div>
+          </div></div>
+        </div>
+        <div class="qa reveal">
+          <button class="q" aria-expanded="false"><span>Can we brand the registration page and emails?</span><span class="pm"></span></button>
+          <div class="ans"><div>
+            <p class="short">Yes. Logo, banner, colours, registration questions, approval rules and emails are all configurable.</p>
+            <button class="more" aria-expanded="false">Know more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="full"><div><p>Yes. Logo, banner, colours, custom registration questions, approval rules, confirmation and reminder emails are all configurable. Sysgrate sets these up against your brand guidelines during deployment.</p></div></div>
+          </div></div>
+        </div>
+        <div class="qa reveal">
+          <button class="q" aria-expanded="false"><span>Does registrant data flow into our CRM automatically?</span><span class="pm"></span></button>
+          <div class="ans"><div>
+            <p class="short">Yes. We connect Zoom to HubSpot, Salesforce, Marketo, Dynamics or Zoho — no manual uploads.</p>
+            <button class="more" aria-expanded="false">Know more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="full"><div><p>Yes. We connect Zoom to HubSpot, Salesforce, Marketo, Dynamics or Zoho so registration and attendance data — including dwell time, poll answers and questions asked — lands against the right record without manual uploads.</p></div></div>
+          </div></div>
+        </div>
+        <div class="qa reveal">
+          <button class="q" aria-expanded="false"><span>Can we stream to LinkedIn or YouTube at the same time?</span><span class="pm"></span></button>
+          <div class="ans"><div>
+            <p class="short">Yes. Stream simultaneously to LinkedIn Live, YouTube, Facebook and custom RTMP destinations.</p>
+            <button class="more" aria-expanded="false">Know more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="full"><div><p>Yes. Sessions can be streamed simultaneously to LinkedIn Live, YouTube, Facebook and custom RTMP destinations, so your registered audience and your open audience are served from one production.</p></div></div>
+          </div></div>
+        </div>
+        <div class="qa reveal">
+          <button class="q" aria-expanded="false"><span>Where is our data hosted?</span><span class="pm"></span></button>
+          <div class="ans"><div>
+            <p class="short">Hosting options depend on the Zoom configuration; we architect around your residency and privacy requirements.</p>
+            <button class="more" aria-expanded="false">Know more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="full"><div><p>Data residency and hosting options depend on the Zoom configuration and applicable requirements. Sysgrate can help architect the deployment around your organisation's data residency and privacy requirements.</p></div></div>
+          </div></div>
+        </div>
+        <div class="qa reveal">
+          <button class="q" aria-expanded="false"><span>What support do we get on event day?</span><span class="pm"></span></button>
+          <div class="ans"><div>
+            <p class="short">Producer support for your first live sessions, then 24×7 technical cover; dedicated event-day support on request.</p>
+            <button class="more" aria-expanded="false">Know more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="full"><div><p>Sysgrate provides producer support for your first live sessions and 24×7 technical cover thereafter. For high-stakes events, dedicated event-day support can be arranged in advance.</p></div></div>
+          </div></div>
+        </div>
+      </div><div class="faq-col"></div>
+    </div>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
 <section id="cta">
   <div class="wrap">
@@ -755,7 +862,7 @@ form .btn{grid-column:1/-1;justify-content:center;margin-top:4px}
       </div>
       <div>
         <h5>Explore</h5>
-        <ul><li><a href="#features">Key features</a></li><li><a href="#use-cases">Use Cases</a></li><li><a href="#production">Production</a></li><li><a href="#integration">Integration</a></li></ul>
+        <ul><li><a href="#features">Key features</a></li><li><a href="#use-cases">Use Cases</a></li><li><a href="#production">Production</a></li><li><a href="#integration">Integration</a></li><li><a href="#faq">FAQs</a></li></ul>
       </div>
       <div>
         <h5>Get started</h5>
@@ -913,6 +1020,27 @@ const FORM_ENDPOINT = "";
   $$('.vtile').forEach(c=>c.addEventListener('mousemove',e=>{
     const r=c.getBoundingClientRect(); c.style.setProperty('--mx',(e.clientX-r.left)+'px'); c.style.setProperty('--my',(e.clientY-r.top)+'px');
   }));
+
+  /* FAQ */
+  const fcols=$$('#faqCols .faq-col'), fqs=$$('.qa');
+  fqs.forEach(el=>{
+    io.observe(el);
+    const head=$('.q',el), more=$('.more',el), full=$('.full',el);
+    head.addEventListener('click',()=>{
+      const open=!el.classList.contains('open');
+      fqs.forEach(x=>{ x.classList.remove('open'); $('.q',x).setAttribute('aria-expanded','false'); });
+      if(open){ el.classList.add('open'); head.setAttribute('aria-expanded','true'); }
+    });
+    more.addEventListener('click',e=>{
+      e.stopPropagation();
+      const on=!full.classList.contains('open');
+      full.classList.toggle('open',on);
+      more.setAttribute('aria-expanded',on);
+      more.firstChild.textContent=on?'Show less ':'Know more ';
+    });
+  });
+  function layoutFaq(){ const one=innerWidth<760; fqs.forEach((el,i)=>fcols[one||i<4?0:1].appendChild(el)); }
+  layoutFaq(); addEventListener('resize',layoutFaq);
 
   /* Modal + form */
   const modal=$('#modal'), form=$('#leadForm'), success=$('#success');
