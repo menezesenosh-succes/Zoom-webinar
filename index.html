@@ -842,9 +842,8 @@ form .btn{grid-column:1/-1;justify-content:center;margin-top:4px}
       <div class="motif m2" aria-hidden="true"><span style="width:60%;margin-left:40%"></span><span style="width:60%;margin-left:28%"></span><span style="width:60%;margin-left:15%"></span></div>
       <h2>Create webinars your audience wants to attend</h2>
       <p>Bring professional production, audience engagement, AI-powered capabilities, content management, and event insights together in one platform.</p>
-      <div class="actions">
+            <div class="actions">
         <button class="btn btn-light" data-open="expert">Talk to an Expert <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-        <button class="btn btn-outline-light" data-open="explore">Explore Webinars &amp; Events</button>
       </div>
     </div>
   </div>
@@ -866,7 +865,7 @@ form .btn{grid-column:1/-1;justify-content:center;margin-top:4px}
       </div>
       <div>
         <h5>Get started</h5>
-        <ul><li><a href="#" data-open="expert">Talk to an Expert</a></li><li><a href="#" data-open="explore">Explore Webinars &amp; Events</a></li><li><a href="https://www.sysgrate.com" target="_blank" rel="noopener">sysgrate.com</a></li></ul>
+                <ul><li><a href="#" data-open="expert">Talk to an Expert</a></li><li><a href="https://www.sysgrate.com" target="_blank" rel="noopener">sysgrate.com</a></li></ul>
       </div>
     </div>
     <div class="copy"><span>© <span id="yr">2026</span> Sysgrate. All rights reserved.</span><span>Zoom, Zoom Webinars and related marks are trademarks of Zoom Communications, Inc.</span></div>
@@ -886,8 +885,7 @@ form .btn{grid-column:1/-1;justify-content:center;margin-top:4px}
       <div class="field"><label for="em">Work email *</label><input id="em" name="work_email" type="email" required autocomplete="email"></div>
       <div class="field"><label for="co">Company *</label><input id="co" name="company" required autocomplete="organization"></div>
       <div class="field"><label for="ph">Phone</label><input id="ph" name="phone" type="tel" autocomplete="tel"></div>
-      <div class="field"><label for="ev">Event type</label><select id="ev" name="event_type"><option value="">Select</option><option>Webinars</option><option>Virtual events</option><option>Hybrid events</option><option>On-demand video</option><option>Training and certification</option></select></div>
-      <div class="field"><label for="tm">Team</label><select id="tm" name="team"><option value="">Select</option><option>Marketing teams</option><option>Sales teams</option><option>HR and internal communications</option><option>Education and training teams</option><option>Event teams</option></select></div>
+      <div class="field full"><label for="tm">Team</label><select id="tm" name="team"><option value="">Select</option><option>Marketing teams</option><option>Sales teams</option><option>HR and internal communications</option><option>Education and training teams</option><option>Event teams</option></select></div>
       <div class="field full"><label for="msg">What would you like to discuss?</label><textarea id="msg" name="message"></textarea></div>
       <button type="submit" class="btn btn-primary" id="submitBtn">Submit request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
     </form>
@@ -1046,7 +1044,6 @@ const FORM_ENDPOINT = "";
   const modal=$('#modal'), form=$('#leadForm'), success=$('#success');
   const COPY={
     expert:["Talk to an Expert","Create webinars that connect, engage, and deliver results."],
-    explore:["Explore Webinars & Events","Bring professional production, audience engagement, AI-powered capabilities, content management, and event insights together in one platform."],
     integrations:["Explore Integrations","Connect your webinar experience with the tools your teams already use."]
   };
   let lastFocus;
